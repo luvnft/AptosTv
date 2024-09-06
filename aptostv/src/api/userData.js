@@ -11,11 +11,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/71448z1vwmpx3fuv/1080p0.mp4",
     logo: "/streamers/dt.jpg",
-    publicKey: "0x180183f60d14433fe253ac87d683f23695f3831479241c91f73236a4e5cbf892",
+    publicKey:
+      "0x180183f60d14433fe253ac87d683f23695f3831479241c91f73236a4e5cbf892",
     charity: "Movistar Foundation",
     title: "League gameplay",
     online: false,
-    nftLock : false
+    nftLock: true,
   },
   {
     name: "Auron Pause",
@@ -26,11 +27,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c4a254f2rt7in9vj/1080p0.mp4",
     logo: "/streamers/ap.jpg",
-    publicKey: "0xa6c31611f52b15a813d30e7033ef9744045735c4252e8d6c14d5b15e2885640a",
+    publicKey:
+      "0xa6c31611f52b15a813d30e7033ef9744045735c4252e8d6c14d5b15e2885640a",
     charity: "Snipping INGKA Foundation",
     title: "Bioshock Infinite and more",
     online: false,
-    nftLock : false
+    nftLock: true,
   },
   {
     name: "Flawler",
@@ -42,12 +44,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/4cbe288dt3n1wk3n/1080p0.mp4",
     logo: "/streamers/f.jpg",
-    publicKey: "0xe033080f5ee571d3fd4141eb8c6698af859214dd68a9734321c6ab1a7a96bf1c",
+    publicKey:
+      "0xe033080f5ee571d3fd4141eb8c6698af859214dd68a9734321c6ab1a7a96bf1c",
     charity: "GoodBye Trust",
-    title:
-      "Goodbye Muzan Kibutsuji",
+    title: "Goodbye Muzan Kibutsuji",
     online: false,
-    nftLock : true
+    nftLock: false,
   },
   {
     name: "CartonPotato",
@@ -59,11 +61,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/8819t19ptwm1qvmw/1080p0.mp4",
     logo: "/streamers/cp.jpg",
-    publicKey: "0x9ce368e7721c49db57c164d49dc239727ed6a93308fb832dd88ed192c4c79ee7",
+    publicKey:
+      "0x9ce368e7721c49db57c164d49dc239727ed6a93308fb832dd88ed192c4c79ee7",
     charity: "Howard Wolowitz  Medical Institute",
     title: "LOL TIME!! big support",
     online: false,
-    nftLock : false
+    nftLock: true,
   },
   {
     name: "Thiago one",
@@ -75,11 +78,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/7584yeecey1tefq8/1080p0.mp4",
     logo: "/streamers/to.jpg",
-    publicKey: "0xc4290ef75f91c48bdbd65e1cc4d342c0d64805bdcb9d988f7f0aac09541b7301",
+    publicKey:
+      "0xc4290ef75f91c48bdbd65e1cc4d342c0d64805bdcb9d988f7f0aac09541b7301",
     charity: "Public Health",
     title: "Silent Hill",
     online: false,
-    nftLock : true
+    nftLock: true,
   },
   {
     name: "Morenus",
@@ -91,11 +95,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/d9b90fbukixovo2m/1080p0.mp4",
     logo: "/streamers/m.jpg",
-    publicKey: "0xfed2a5730c939f11c08fa4e3603a72c0012a40a09475664371eca59d266c8a86",
+    publicKey:
+      "0xfed2a5730c939f11c08fa4e3603a72c0012a40a09475664371eca59d266c8a86",
     charity: "Peje Foundation",
     title: "Peje for fun Foundation",
     online: false,
-    nftLock : false
+    nftLock: true,
   },
   {
     name: "Pokimanolo",
@@ -107,11 +112,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/c1deqphcw7bbsrnt/1080p0.mp4",
     logo: "/streamers/p.jpg",
-    publicKey: "0xbaa7fa4f85694fe71aec2bbb503b2093f200e0739ea11fa5df64db810889e0c6",
+    publicKey:
+      "0xbaa7fa4f85694fe71aec2bbb503b2093f200e0739ea11fa5df64db810889e0c6",
     charity: "Kids Investment Fund",
     title: "Just chatting and playing",
     online: false,
-    nftLock : false
+    nftLock: false,
   },
   {
     name: "Samurai",
@@ -123,11 +129,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/d1bb4v1gyeypyqwv/1080p0.mp4",
     logo: "/streamers/s.jpg",
-    publicKey: "0xf53c9ab4d7d1999923d9816d56f09a34f9b3be68e4e8be5121a45a35d2d545fd",
+    publicKey:
+      "0xf53c9ab4d7d1999923d9816d56f09a34f9b3be68e4e8be5121a45a35d2d545fd",
     charity: "U.S. K8 Association",
     title: "Music and Fun",
     online: false,
-    nftLock : false
+    nftLock: true,
   },
   {
     name: "Solo Manco Only",
@@ -139,11 +146,12 @@ const userData = [
     defaultSession:
       "https://vod-cdn.lp-playback.studio/raw/jxf4iblf6wlsyor6526t4tcmtmqa/catalyst-vod-com/hls/90042na4h5n84s54/1080p0.mp4",
     logo: "/streamers/smo.jpg",
-    publicKey: "0x60bc0f83d67eab352545e129ebea96ffcb664b391e694de3a984d4db385003a6",
+    publicKey:
+      "0x60bc0f83d67eab352545e129ebea96ffcb664b391e694de3a984d4db385003a6",
     charity: "Mexican Cancer Society",
     title: "LOLOLOLOL",
     online: false,
-    nftLock : false
+    nftLock: false,
   },
 ];
 

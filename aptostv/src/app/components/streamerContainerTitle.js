@@ -6,7 +6,10 @@ export default function StreamerContainerTitle(props) {
   const router = useRouter();
   const logoSize = 60;
   return (
-    <div className="streamer-container2" onClick={() => router.push("/streamer/" + props.username)}>
+    <div
+      className="streamer-container2"
+      onClick={() => router.push("/streamer/" + props.username)}
+    >
       <Image
         src={props.logo}
         alt="Streamer Logo"
@@ -21,10 +24,17 @@ export default function StreamerContainerTitle(props) {
         }}
       />
       <div className="streamer-format2">
-        <div style={{ fontSize: "1.2rem", fontWeight: "bold", marginTop: "5px" }}>
-          {props.title.length > 20 ? props.title.substring(0, 20) + "..." : props.title}
+        <div
+          style={{ fontSize: "1.2rem", fontWeight: "bold", marginTop: "5px" }}
+        >
+          {props.title.length > 20
+            ? props.title.substring(0, 20) + "..."
+            : props.title}
         </div>
-        <div style={{ color: "#BBB" }}>{props.name}</div>
+        <div style={{ color: "#BBB" }}>
+          {props.name}
+          {props.nftLock ? " (NFT Locked)" : ""}
+        </div>
         <div style={{ color: "#BBB" }}>{props.charity}</div>
       </div>
     </div>
