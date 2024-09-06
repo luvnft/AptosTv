@@ -50,10 +50,9 @@ export default function Home() {
                 src={`https://livepeercdn.studio/hls/${streamer.streamURL}/index.m3u8`}
                 height="200px"
                 width="auto"
-                controls
               />
             ) : (
-              <video height="200px" width="auto" controls>
+              <video height="200px" width="auto">
                 <source src={streamer.defaultSession} />
               </video>
             )}

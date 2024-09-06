@@ -1,4 +1,5 @@
 "use client";
+import { checkNFT } from "@/api/checkNFT";
 import { getStreams } from "@/api/getPlaybackInfo";
 import { transferNFT } from "@/api/transferNFT";
 import { getStreamers } from "@/api/userData";
@@ -13,7 +14,7 @@ import { BigNumber } from "ethers";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import "hls-video-element";
 import Link from "next/link";
-import React, { useCallback } from "react";
+import React, { Fragment, useCallback } from "react";
 import { toast } from "react-toastify";
 
 const Msg = ({ hash }) => (
@@ -48,7 +49,8 @@ export default function Streamer({ params }) {
   const [tokenSelected, setTokenSelected] = React.useState(
     blockchain.tokens[0].symbol
   );
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [nftFlag, setNftFlag] = React.useState(false);
 
   const setup = useCallback(async () => {
     const [users, streams] = await Promise.all([getStreamers(), getStreams()]);
@@ -84,10 +86,11 @@ export default function Streamer({ params }) {
     );
     setBalances(balancesTemp);
     setBalancesCharity(balancesCharityTemp);
+    let flag = await checkNFT(account.address);
+    setNftFlag(flag);
   }, [provider, streamer, account, setBalances, setBalancesCharity]);
 
   const donate = useCallback(async () => {
-    setLoading(true);
     try {
       const tokenIndex = findIndexByProperty(
         blockchain.tokens,
@@ -117,11 +120,9 @@ export default function Streamer({ params }) {
       await provider.waitForTransaction({
         transactionHash: response.hash,
       });
-      const nft = await transferNFT(account.address);
-      console.log(nft);
+      await transferNFT(account.address);
       toast.success(<Msg hash={response.hash} />);
       await cryptoSetup();
-      setLoading(false);
     } catch (e) {
       toast.error(e);
       setLoading(false);
@@ -137,6 +138,17 @@ export default function Streamer({ params }) {
       cryptoSetup();
     }
   }, [connected, streamers]);
+
+  React.useEffect(() => {
+    if (nftFlag) {
+      setLoading(true);
+      setTimeout(async () => {
+        setLoading(false);
+      }, 100);
+    } else {
+      setLoading(false);
+    }
+  }, [nftFlag]);
 
   return (
     <div className="container">
@@ -157,19 +169,35 @@ export default function Streamer({ params }) {
         })}
       </div>
       <div className="home-container2">
-        {JSON.stringify(streamer) !== "{}" && (
+        {JSON.stringify(streamer) !== "{}" && !loading && (
           <div className="video-container2">
             {streamer.online ? (
-              <hls-video
-                src={`https://livepeercdn.studio/hls/${streamer.streamURL}/index.m3u8`}
-                height="auto"
-                width="100%"
-                controls
-              />
+              <Fragment>
+                {!streamer.nftLock || nftFlag ? (
+                  <hls-video
+                    src={`https://livepeercdn.studio/hls/${streamer.streamURL}/index.m3u8`}
+                    height="auto"
+                    width="100%"
+                    controls
+                  />
+                ) : (
+                  <video height="auto" width="100%" controls>
+                    <source src={"/assets/video.mp4"} />
+                  </video>
+                )}
+              </Fragment>
             ) : (
-              <video height="auto" width="100%" controls>
-                <source src={streamer.defaultSession} />
-              </video>
+              <Fragment>
+                {!streamer.nftLock || nftFlag ? (
+                  <video height="auto" width="100%" controls>
+                    <source src={streamer.defaultSession} />
+                  </video>
+                ) : (
+                  <video height="auto" width="100%" controls>
+                    <source src={"/assets/video.mp4"} />
+                  </video>
+                )}
+              </Fragment>
             )}
             <StreamerContainerStream {...streamer} />
           </div>

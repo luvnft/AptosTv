@@ -15,6 +15,7 @@ const userData = [
     charity: "Movistar Foundation",
     title: "League gameplay",
     online: false,
+    nftLock : false
   },
   {
     name: "Auron Pause",
@@ -29,6 +30,7 @@ const userData = [
     charity: "Snipping INGKA Foundation",
     title: "Bioshock Infinite and more",
     online: false,
+    nftLock : false
   },
   {
     name: "Flawler",
@@ -45,6 +47,7 @@ const userData = [
     title:
       "Goodbye Muzan Kibutsuji",
     online: false,
+    nftLock : true
   },
   {
     name: "CartonPotato",
@@ -60,6 +63,7 @@ const userData = [
     charity: "Howard Wolowitz  Medical Institute",
     title: "LOL TIME!! big support",
     online: false,
+    nftLock : false
   },
   {
     name: "Thiago one",
@@ -75,6 +79,7 @@ const userData = [
     charity: "Public Health",
     title: "Silent Hill",
     online: false,
+    nftLock : true
   },
   {
     name: "Morenus",
@@ -90,6 +95,7 @@ const userData = [
     charity: "Peje Foundation",
     title: "Peje for fun Foundation",
     online: false,
+    nftLock : false
   },
   {
     name: "Pokimanolo",
@@ -105,6 +111,7 @@ const userData = [
     charity: "Kids Investment Fund",
     title: "Just chatting and playing",
     online: false,
+    nftLock : false
   },
   {
     name: "Samurai",
@@ -120,6 +127,7 @@ const userData = [
     charity: "U.S. K8 Association",
     title: "Music and Fun",
     online: false,
+    nftLock : false
   },
   {
     name: "Solo Manco Only",
@@ -135,6 +143,7 @@ const userData = [
     charity: "Mexican Cancer Society",
     title: "LOLOLOLOL",
     online: false,
+    nftLock : false
   },
 ];
 
