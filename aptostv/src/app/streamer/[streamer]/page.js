@@ -184,7 +184,7 @@ export default function Streamer({ params }) {
           }}
         >
           <Link
-            href={`${blockchain.blockExplorer}address/${streamer.publicKey}`}
+            href={`${blockchain.blockExplorer}account/${streamer.publicKey}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#ffffff" }}
