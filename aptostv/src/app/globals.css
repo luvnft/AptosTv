@@ -96,7 +96,7 @@ body {
 }
 
 .streamer-container:hover {
-  background-color: #002880;
+  background-color: #00288077;
   cursor: pointer;
 }
 
@@ -124,7 +124,7 @@ body {
 }
 
 .streamer-container2:hover {
-  background-color: #002880;
+  background-color: #00288077;
   cursor: pointer;
 }
 
@@ -215,7 +215,7 @@ body {
 
 .token-container:hover {
   cursor: pointer;
-  background-color: #002880;
+  background-color: #00288077;
 }
 
 .token-container2 {
