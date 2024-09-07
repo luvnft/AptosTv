@@ -1,6 +1,10 @@
 # AptosTv
 
+<<<<<<< HEAD
 <img src="https://i.ibb.co/sRjZK37/New-Project-1.png" >
+=======
+![LOGO](https://i.ibb.co/sRjZK37/New-Project-1.png)
+>>>>>>> c36e27c49440042760f9625a2935f14fd26492f4
 
  A decentralized streaming platform where creators can create charity-based streams for social, environmental and economic causes. Powered by Aptos Network and Livepeer.
 
