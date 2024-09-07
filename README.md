@@ -14,7 +14,7 @@
 
 ## Requirements
 
-- Use Aptos Mainnet on Petra Wallet! (or any aptos comptible wallet) 
+- Use Aptos Mainnet on Petra Wallet! (or any Aptos compatible wallet) 
   - Get it on Petra: https://petra.app/
   - Petra Wallet is set up on Mainnet by default
 
@@ -47,7 +47,35 @@ Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segun
 
 <img src="./Images/image4.png">
 
-In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK pata javascript @aptos-labs/ts-sdk.
+Para poder habilitar la red de Aptos y la interaccion con las wallets primero la pagina debe de tener configurado algun Wallet Provider dentro de la aplicacion, en este caso utulizamos el @aptos-labs/wallet-adapter-react.
+
+    <AptosWalletAdapterProvider
+    plugins={wallets}
+    autoConnect={true}
+    dappConfig={{
+        network: Network.MAINNET,
+    }}
+    onError={(error) => {
+        console.log(error);
+    }}
+    >
+    {children}
+    ...
+    </AptosWalletAdapterProvider>
+
+La implementacion tecnica de este componente en la app esta en el siguiente link:
+
+[**Complete code**](./aptostv/src/app/components/web3modal.js)
+
+Finalmente para poder interactuar con el Wallet Provider de forma sencilla para el usuario, creamos desde cero un boton de "Connect" el cual es ya caracteristico de las dApps de cualquier chain.
+
+<img src="./Images/button.png" width="100%">
+
+Este boton nos provee una forma sencilla de conectarse a Aptos desde el Wallet Provider ademas de darnos nuestro balance y al hacerle clic nos abrira el Explorer para visualizar nuestra wallet on-chain. La implementacion tecnica de este boton esta en el siguiente link:
+
+[**Complete code**](./aptostv/src/app/components/walletButton.js)
+
+In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK para javascript @aptos-labs/ts-sdk.
 
     const cryptoSetup = useCallback(async () => {
         const balancesTemp = await Promise.all(
@@ -72,7 +100,7 @@ In order to obtain the balances of each of the Coins in the Aptos network, utili
         setNftFlag(flag);
     }, [provider, streamer, account, setBalances, setBalancesCharity]);
 
-[Complete Code](./aptostv/src/app/streamer/[streamer]/page.js)
+[**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
 Within our platform we have a summary where we can see all the donations in real time.
 
@@ -102,7 +130,7 @@ El codigo que realiza el chequeo de que la wallet conectada tiene el NFT es el s
         ).length > 0;
     return flag;
 
-[Complete Code](./aptostv/src/api/checkNFT.js)
+[**Complete code**](./aptostv/src/api/checkNFT.js)
 
 ## Livepeer:
 
@@ -133,7 +161,7 @@ Code Snippet:
         return json;
     }
 
-[Complete Code](./aptostv/src/api/userData.js)
+[**Complete code**](./aptostv/src/api/userData.js)
 
 # References
 
