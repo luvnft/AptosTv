@@ -43,11 +43,11 @@
 
 ## Aptos Network:
 
-Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segundo y de nos permite de forma decentralizada realizar campañas de donaciones. Ademas de permitirnos con muy bajos fees realizar estas dinamicas y repartir NFTs con un gas fee muy bajo.
+Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segundo, tiene bajas gas fees y ademas de forma decentralizada realizar campañas de donaciones sin intermediarios y sobe todo poder relizar la distribucion y recomoensas por NFTs facilmente.
 
 <img src="./Images/image4.png">
 
-Para poder habilitar la red de Aptos y la interaccion con las wallets primero la pagina debe de tener configurado algun Wallet Provider dentro de la aplicacion, en este caso utulizamos el @aptos-labs/wallet-adapter-react.
+Para poder habilitar la red de Aptos y la interaccion con las wallets primero la pagina debe de tener configurado algun Wallet Provider dentro de la aplicacion, en este caso utilizamos el [@aptos-labs/wallet-adapter-react](https://www.npmjs.com/package/@aptos-labs/wallet-adapter-react).
 
     <AptosWalletAdapterProvider
         plugins={wallets}
@@ -77,7 +77,7 @@ La implementacion tecnica completa esta en el siguiente link:
 
 [**Complete code**](./aptostv/src/app/components/walletButton.js)
 
-In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK para javascript @aptos-labs/ts-sdk.
+In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK para javascript [@aptos-labs/ts-sdk](https://www.npmjs.com/package/@aptos-labs/ts-sdk).
 
     const cryptoSetup = useCallback(async () => {
         const balancesTemp = await Promise.all(
