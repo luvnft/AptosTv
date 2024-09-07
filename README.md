@@ -114,7 +114,7 @@ Para relizar una donacion, generamos una transferencia desde nuestra wallet a la
 
 <img src="./Images/donate.png" height="400px"> <img src="./Images/wallet.png" height="400px">
 
-El codigo que realiza la signature reuqest es el siguiente.
+El code snippet que realiza la signature request al presionar el boton es el siguiente.
 
     const transaction = {
         sender: account.address,
@@ -156,7 +156,7 @@ Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
 AptosTV NFT - Aptos Explorer: 
 https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
 
-El codigo que realiza el chequeo de que la wallet conectada tiene el NFT es el siguiente.
+El code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente.
 
     const checkUser = await provider.getOwnedDigitalAssets({
             ownerAddress: address,
