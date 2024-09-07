@@ -50,20 +50,20 @@ Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segun
 Para poder habilitar la red de Aptos y la interaccion con las wallets primero la pagina debe de tener configurado algun Wallet Provider dentro de la aplicacion, en este caso utulizamos el @aptos-labs/wallet-adapter-react.
 
     <AptosWalletAdapterProvider
-    plugins={wallets}
-    autoConnect={true}
-    dappConfig={{
-        network: Network.MAINNET,
-    }}
-    onError={(error) => {
-        console.log(error);
-    }}
+        plugins={wallets}
+        autoConnect={true}
+        dappConfig={{
+            network: Network.MAINNET,
+        }}
+        onError={(error) => {
+            console.log(error);
+        }}
     >
-    {children}
-    ...
+        {children}
+        ...
     </AptosWalletAdapterProvider>
 
-La implementacion tecnica de este componente en la app esta en el siguiente link:
+La implementacion tecnica completa esta en el siguiente link:
 
 [**Complete code**](./aptostv/src/app/components/web3modal.js)
 
@@ -71,7 +71,9 @@ Finalmente para poder interactuar con el Wallet Provider de forma sencilla para 
 
 <img src="./Images/button.png" width="100%">
 
-Este boton nos provee una forma sencilla de conectarse a Aptos desde el Wallet Provider ademas de darnos nuestro balance y al hacerle clic nos abrira el Explorer para visualizar nuestra wallet on-chain. La implementacion tecnica de este boton esta en el siguiente link:
+Este boton nos provee una forma sencilla de conectarse a Aptos desde el Wallet Provider ademas de darnos nuestro balance y al hacerle clic nos abrira el Explorer para visualizar nuestra wallet on-chain.
+
+La implementacion tecnica completa esta en el siguiente link:
 
 [**Complete code**](./aptostv/src/app/components/walletButton.js)
 
@@ -100,11 +102,46 @@ In order to obtain the balances of each of the Coins in the Aptos network, utili
         setNftFlag(flag);
     }, [provider, streamer, account, setBalances, setBalancesCharity]);
 
+La implementacion tecnica completa esta en el siguiente link:
+
 [**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
 Within our platform we have a summary where we can see all the donations in real time.
 
 <img src="./Images/image5.png">
+
+Para relizar una donacion, generamos una transferencia desde nuestra wallet a la wallet de la caridad o streamer que deamos apoyar, esto se realiza, seleccionando el token que vamos a donar, poniendo la cantidad y presionando el boton de Donate.
+
+<img src="./Images/donate.png" height="400px"> <img src="./Images/wallet.png" height="400px">
+
+El codigo que realiza la signature reuqest es el siguiente.
+
+    const transaction = {
+        sender: account.address,
+        data: {
+            type: "entry_function_payload",
+            function:
+            token.address === blockchain.tokens[0].address
+                ? "0x1::aptos_account::transfer"
+                : "0x1::aptos_account::transfer_coins",
+            typeArguments:
+            token.address === blockchain.tokens[0].address
+                ? []
+                : [token.address],
+            functionArguments: [
+            streamer.publicKey,
+            parseUnits(amount, token.decimals).toBigInt(),
+            ],
+        },
+    };
+    let response = await signAndSubmitTransaction(transaction);
+    await provider.waitForTransaction({
+        transactionHash: response.hash,
+    });
+
+La implementacion tecnica completa esta en el siguiente link:
+
+[**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
 Una de las features mas importantes es un NFT lock que provee a los streamers una herramienta para propiciar que los usuarios realicen donaciones a sus causas, ya sea solo para poder ver el contenido exclusivo que generan, parecido al modelo de youtube, o incluso para obtener otro tipo de rewards enfocados mas en la plataforma.
 
@@ -129,6 +166,8 @@ El codigo que realiza el chequeo de que la wallet conectada tiene el NFT es el s
             (asset) => asset.current_token_data.token_name === "AptosTV"
         ).length > 0;
     return flag;
+
+La implementacion tecnica completa esta en el siguiente link:
 
 [**Complete code**](./aptostv/src/api/checkNFT.js)
 
@@ -161,6 +200,7 @@ Code Snippet:
         return json;
     }
 
+La implementacion tecnica completa esta en el siguiente link:
 [**Complete code**](./aptostv/src/api/userData.js)
 
 # References
