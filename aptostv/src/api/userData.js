@@ -30,7 +30,7 @@ const userData = [
     publicKey:
       "0xa6c31611f52b15a813d30e7033ef9744045735c4252e8d6c14d5b15e2885640a",
     charity: "Snipping INGKA Foundation",
-    title: "Bioshock Infinite and more",
+    title: "Aptos Experience Charity Live Stream",
     online: false,
     nftLock: true,
   },
