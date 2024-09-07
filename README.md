@@ -86,6 +86,11 @@ Una vez se hace la donacion configurada por el Streamer, en este caso la platafo
 
 <img src="https://i.ibb.co/WPD10mZ/vlcsnap-2024-09-07-00h27m38s231.png">
 
+Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
+
+AptosTV NFT - Aptos Explorer: 
+https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
+
 El codigo que realiza el chequeo de que la wallet conectada tiene el NFT es el siguiente.
 
     const checkUser = await provider.getOwnedDigitalAssets({
