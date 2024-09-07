@@ -1,12 +1,12 @@
 # AptosTv
 
-<img src="https://i.ibb.co/sRjZK37/New-Project-1.png" >
+<img src="./Images/image1.png" >
 
  A decentralized streaming platform where creators can create charity-based streams for social, environmental and economic causes. Powered by Aptos Network and Livepeer.
 
 # Watch our demo video:
 
-[![Demo](https://i.ibb.co/ts552Ph/image.png)]()
+[![Demo](./Images/image2.png)]()
 
 # Test the product:
 
@@ -20,7 +20,7 @@
 
 # Diagram:
 
-<img src="https://i.ibb.co/Ct7Jp9r/main-diagram-drawio.png" >
+<img src="./Images/image3.png" >
 
 ## Tech we Use:
 
@@ -45,7 +45,7 @@
 
 Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segundo y de nos permite de forma decentralizada realizar campañas de donaciones. Ademas de permitirnos con muy bajos fees realizar estas dinamicas y repartir NFTs con un gas fee muy bajo.
 
-<img src="https://i.ibb.co/Bz0KvGV/image.png">
+<img src="./Images/image4.png">
 
 In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK pata javascript @aptos-labs/ts-sdk.
 
@@ -76,15 +76,15 @@ In order to obtain the balances of each of the Coins in the Aptos network, utili
 
 Within our platform we have a summary where we can see all the donations in real time.
 
-<img src="https://i.ibb.co/W2nDL06/vlcsnap-2024-09-07-00h15m49s246-1.png">
+<img src="./Images/image5.png">
 
 Una de las features mas importantes es un NFT lock que provee a los streamers una herramienta para propiciar que los usuarios realicen donaciones a sus causas, ya sea solo para poder ver el contenido exclusivo que generan, parecido al modelo de youtube, o incluso para obtener otro tipo de rewards enfocados mas en la plataforma.
 
-<img src="https://i.ibb.co/rs6xMSq/vlcsnap-2024-09-07-00h25m34s690.png">
+<img src="./Images/image6.png">
 
 Una vez se hace la donacion configurada por el Streamer, en este caso la plataforma te dara un NFT al realizar cualquier donacion, contemplando que este es un POC, y podras visualizarlo en tu Wallet.
 
-<img src="https://i.ibb.co/WPD10mZ/vlcsnap-2024-09-07-00h27m38s231.png">
+<img src="./Images/image7.png">
 
 Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
 
@@ -106,19 +106,19 @@ El codigo que realiza el chequeo de que la wallet conectada tiene el NFT es el s
 
 ## Livepeer:
 
-<img src="https://i.ibb.co/pf527Tc/image.png">
+<img src="./Images/image8.png">
 
 All the streaming services were done through Livepeer.
 
-<img src="https://i.ibb.co/YW40ygb/livepeer-diagram-drawio.png">
+<img src="./Images/image9.png">
 
 To manage Streamers, the profiles of each of the Streamers were created within the Livepeer dashboard, with which we were able to provide each Streamer with their keys to perform their Streams.
 
-<img src="https://i.ibb.co/5hq2C1C/Screenshot-2024-07-23-183857.png">
+<img src="./Images/image10.png">
 
 Thanks to the Livepeer APIs it was possible for us to obtain if the Streamers were doing a Live, thanks to this the viewers could always be aware when a live stream is made.
 
-<img src="https://i.ibb.co/gT314Zf/vlcsnap-2024-09-07-00h03m47s464.png">
+<img src="./Images/image11.png">
 
 The section of code that allows us to obtain the profiles, recordings and states (live or offline) is the following.
 
