@@ -1,25 +1,52 @@
 "use server";
 
-import {
-  Aptos,
-  AptosConfig,
-  Network
-} from "@aptos-labs/ts-sdk";
-
-// Initialize Aptos Client with configuration
-const config = new AptosConfig({
-  network: Network.MAINNET,
-});
-
-const provider = new Aptos(config);
-
-export async function checkNFT(address) {
-  const checkUser = await provider.getOwnedDigitalAssets({
-    ownerAddress: address,
+const data = (address) =>
+  JSON.stringify({
+    query: `{
+  current_token_ownerships_v2(
+    limit: 100
+    offset: 0
+    where: {
+      owner_address: {
+        _eq: "${address}"
+      }
+    }
+  ) {
+    amount
+    token_data_id
+    current_token_data {
+      token_name
+      current_collection {
+        creator_address
+      }
+    }
+  }
+}`,
   });
-  const flag =
-    checkUser.filter(
-      (asset) => asset.current_token_data.token_name === "AptosTV"
-    ).length > 0;
-  return flag;
+
+export async function checkNFT(address, returnId = false) {
+  const body = data(address);
+  const options = {
+    body,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return new Promise((resolve) => {
+    fetch(
+      `https://aptos-mainnet.nodit.io/${process.env.NODIT_APIKEY}/v1/graphql`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const nftsFiltered = response.data.current_token_ownerships_v2
+          .filter((asset) => asset.current_token_data.token_name === "AptosTV")
+          .filter((asset) => asset.amount > 0);
+        if (nftsFiltered.length === 0) resolve(false);
+        if (returnId) resolve(nftsFiltered[0].token_data_id);
+        resolve(true);
+      })
+      .catch(() => resolve(false));
+  });
 }

@@ -8,6 +8,7 @@ import {
   Ed25519PrivateKey,
   Network,
 } from "@aptos-labs/ts-sdk";
+import { checkNFT } from "./checkNFT";
 
 const privateKeyHex = process.env.NFT_MINTER_PRIVATEKEY;
 const minterAddress =
@@ -36,17 +37,9 @@ const config = new AptosConfig({
 const provider = new Aptos(config);
 
 export async function transferNFT(address) {
-  const checkUser = await provider.getOwnedDigitalAssets({
-    ownerAddress: address,
-  });
-  const flag = checkUser.filter((asset) => asset.current_token_data.token_name === "AptosTV").length > 0;
-  if(flag) return "User own the NFT";
-  const digitalAsset = await provider.getOwnedDigitalAssets({
-    ownerAddress: minterAddress,
-  });
-  const nftId = digitalAsset
-    .filter((asset) => asset.current_token_data.token_name === "AptosTV")
-    .map((asset) => asset.current_token_data.token_data_id)[0];
+  const flag = await checkNFT(address);
+  if (flag) return "User own the NFT";
+  const nftId = await checkNFT(minterAddress, true);
   const transferTransaction = await provider.transferDigitalAssetTransaction({
     sender: myAccount,
     digitalAssetAddress: nftId,
