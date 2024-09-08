@@ -164,7 +164,7 @@ Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
 AptosTV NFT - Aptos Explorer: 
 https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
 
-La query que se usa en el code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente, este utiliza la Indexer API de [Nodit](https://nodit.io/).
+La GraphQL Query que se usa en el code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente, este utiliza la Indexer API de [Nodit](https://nodit.io/).
 
     const data = (address) =>
         JSON.stringify({
