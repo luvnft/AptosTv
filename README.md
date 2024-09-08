@@ -8,9 +8,12 @@
 
 [![Demo](./Images/image2.png)]()
 
-# Test the product:
+# FAST LINKS:
 
-## URL: https://aptos-tv.vercel.app/
+- **URL**: https://aptos-tv.vercel.app/
+- **Video Demo**: [OPEN VIDEO](pending....)
+- **Aptos Implementation**: [JUMP TO SECTION](#aptos-network)
+- **Nodit Implementation**: [JUMP TO SECTION](#nodit)
 
 ## Requirements
 
@@ -32,6 +35,8 @@
     - WETH (Wrapped Ether)
   - NFT
     - Special NFTs to unlock rewards.
+- Nodit:
+  - NFT Data Fetch and distribution.
 - Livepeer:
   - RTMP URL:
     - Url to easily transmit from the OBS and start our transmission.
