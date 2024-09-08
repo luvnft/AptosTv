@@ -143,6 +143,14 @@ La implementacion tecnica completa esta en el siguiente link:
 
 [**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
+# Nodit:
+
+Utilizamos la plataforma de Nodit para realizar la revision rapida de los NFTs que tienen las wallet que realizan donaciones en la plataforma para mejorar la distribucion de los NTFs entre estas.
+
+<img src="./Images/nodit.png">
+
+## NFT Rewards:
+
 Una de las features mas importantes es un NFT lock que provee a los streamers una herramienta para propiciar que los usuarios realicen donaciones a sus causas, ya sea solo para poder ver el contenido exclusivo que generan, parecido al modelo de youtube, o incluso para obtener otro tipo de rewards enfocados mas en la plataforma.
 
 <img src="./Images/image6.png">
@@ -156,16 +164,31 @@ Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
 AptosTV NFT - Aptos Explorer: 
 https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
 
-El code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente.
+La query que se usa en el code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente, este utiliza la Indexer API de [Nodit](https://nodit.io/).
 
-    const checkUser = await provider.getOwnedDigitalAssets({
-            ownerAddress: address,
-        });
-    const flag =
-        checkUser.filter(
-            (asset) => asset.current_token_data.token_name === "AptosTV"
-        ).length > 0;
-    return flag;
+    const data = (address) =>
+        JSON.stringify({
+            query: `{
+                current_token_ownerships_v2(
+                limit: 100
+                offset: 0
+                where: {
+                    owner_address: {
+                    _eq: "${address}"
+                    }
+                }
+                ) {
+                amount
+                token_data_id
+                current_token_data {
+                    token_name
+                    current_collection {
+                    creator_address
+                    }
+                }
+            }
+        }`,
+    });
 
 La implementacion tecnica completa esta en el siguiente link:
 
