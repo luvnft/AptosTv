@@ -7,7 +7,7 @@
 # FAST LINKS:
 
 - **URL**: https://aptos-tv.vercel.app/
-- **Video Demo**: [OPEN VIDEO](pending....)
+- **Video Demo**: [OPEN VIDEO](https://youtu.be/MZlkfOFihLU)
 - **Aptos Implementation**: [JUMP TO SECTION](#aptos-network)
 - **Nodit Implementation**: [JUMP TO SECTION](#nodit)
 
