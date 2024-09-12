@@ -44,11 +44,11 @@
 
 ## Aptos Network:
 
-Se utilizo la red de aptos ya que permite mas de 160,000 transacciones por segundo, tiene bajas gas fees y ademas de forma decentralizada realizar campañas de donaciones sin intermediarios y sobe todo poder relizar la distribucion y recomoensas por NFTs facilmente.
+The APTOS network was used because it allows more than 160,000 transactions per second, has low gas fees and also allows donation campaigns to be carried out in a decentralized manner without intermediaries and, above all, can easily distribute and reward NFTs.
 
 <img src="./Images/image4.png">
 
-Para poder habilitar la red de Aptos y la interaccion con las wallets primero la pagina debe de tener configurado algun Wallet Provider dentro de la aplicacion, en este caso utilizamos el [@aptos-labs/wallet-adapter-react](https://www.npmjs.com/package/@aptos-labs/wallet-adapter-react).
+In order to enable the Aptos network and the interaction with the wallets, the page must first have a Wallet Provider configured within the application, in this case we used the [@aptos-labs/wallet-adapter-react](https://www.npmjs.com/package/@aptos-labs/wallet-adapter-react).
 
     <AptosWalletAdapterProvider
         plugins={wallets}
@@ -64,21 +64,21 @@ Para poder habilitar la red de Aptos y la interaccion con las wallets primero la
         ...
     </AptosWalletAdapterProvider>
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 
 [**Complete code**](./aptostv/src/app/components/web3modal.js)
 
-Finalmente para poder interactuar con el Wallet Provider de forma sencilla para el usuario, creamos desde cero un boton de "Connect" el cual es ya caracteristico de las dApps de cualquier chain.
+Finally, in order to be able to interact with the Wallet Provider in a simple way for the user, we created from scratch a "Connect" button which is already characteristic of the dApps of any chain.
 
 <img src="./Images/button.png" width="100%">
 
-Este boton nos provee una forma sencilla de conectarse a Aptos desde el Wallet Provider ademas de darnos nuestro balance y al hacerle clic nos abrira el Explorer para visualizar nuestra wallet on-chain.
+This button provides us with a simple way to connect to Aptos from the Wallet Provider in addition to giving us our balance and when clicked it will open the Explorer to view our on-chain wallet.
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 
 [**Complete code**](./aptostv/src/app/components/walletButton.js)
 
-In order to obtain the balances of each of the Coins in the Aptos network, utilizamos el Aptos Provider del SDK para javascript [@aptos-labs/ts-sdk](https://www.npmjs.com/package/@aptos-labs/ts-sdk).
+In order to obtain the balances of each of the Coins in the Aptos network, we used the Aptos Provider from the SDK for javascript [@aptos-labs/ts-sdk](https://www.npmjs.com/package/@aptos-labs/ts-sdk).
 
     const cryptoSetup = useCallback(async () => {
         const balancesTemp = await Promise.all(
@@ -103,7 +103,7 @@ In order to obtain the balances of each of the Coins in the Aptos network, utili
         setNftFlag(flag);
     }, [provider, streamer, account, setBalances, setBalancesCharity]);
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 
 [**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
@@ -111,11 +111,11 @@ Within our platform we have a summary where we can see all the donations in real
 
 <img src="./Images/image5.png">
 
-Para relizar una donacion, generamos una transferencia desde nuestra wallet a la wallet de la caridad o streamer que deamos apoyar, esto se realiza, seleccionando el token que vamos a donar, poniendo la cantidad y presionando el boton de Donate.
+To make a donation, we generate a transfer from our wallet to the wallet of the charity or streamer that we want to support. This is done by selecting the token that we are going to donate, entering the amount and pressing the Donate button.
 
 <img src="./Images/donate.png" height="400px"> <img src="./Images/wallet.png" height="400px">
 
-El code snippet que realiza la signature request al presionar el boton es el siguiente.
+The code snippet that makes the signature request when pressing the button is the following.
 
     const transaction = {
         sender: account.address,
@@ -140,32 +140,32 @@ El code snippet que realiza la signature request al presionar el boton es el sig
         transactionHash: response.hash,
     });
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 
 [**Complete code**](./aptostv/src/app/streamer/[streamer]/page.js)
 
 # Nodit:
 
-Utilizamos la plataforma de Nodit para realizar la revision rapida de los NFTs que tienen las wallet que realizan donaciones en la plataforma para mejorar la distribucion de los NTFs entre estas.
+We use the Nodit platform to quickly review the NFTs held by wallets that make donations on the platform to improve the distribution of NFTs among them.
 
 <img src="./Images/nodit.png">
 
 ## NFT Rewards:
 
-Una de las features mas importantes es un NFT lock que provee a los streamers una herramienta para propiciar que los usuarios realicen donaciones a sus causas, ya sea solo para poder ver el contenido exclusivo que generan, parecido al modelo de youtube, o incluso para obtener otro tipo de rewards enfocados mas en la plataforma.
+One of the most important features is an NFT lock that provides streamers with a tool to encourage users to make donations to their causes, either just to be able to see the exclusive content they generate, similar to the YouTube model, or even to obtain other types of rewards focused more on the platform.
 
 <img src="./Images/image6.png">
 
-Una vez se hace la donacion configurada por el Streamer, en este caso la plataforma te dara un NFT al realizar cualquier donacion, contemplando que este es un POC, y podras visualizarlo en tu Wallet.
+Once the donation configured by the Streamer is made, in this case the platform will give you an NFT when making any donation, considering that this is a POC, and you will be able to view it in your Wallet.
 
 <img src="./Images/image7.png">
 
-Este es uno de los NFTs en mainnet que proveemos a nuestros donadores.
+This is one of the mainnet NFTs we provide to our donors.
 
 AptosTV NFT - Aptos Explorer: 
 https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
 
-La GraphQL Query que se usa en el code snippet que realiza el chequeo si la wallet conectada tiene el NFT es el siguiente, este utiliza la Indexer API de [Nodit](https://nodit.io/).
+The GraphQL Query used in the code snippet that checks if the connected wallet has the NFT is the following, it uses the Indexer API of [Nodit](https://nodit.io/).
 
     const data = (address) =>
         JSON.stringify({
@@ -191,7 +191,7 @@ La GraphQL Query que se usa en el code snippet que realiza el chequeo si la wall
         }`,
     });
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 
 [**Complete code**](./aptostv/src/api/checkNFT.js)
 
@@ -224,7 +224,7 @@ Code Snippet:
         return json;
     }
 
-La implementacion tecnica completa esta en el siguiente link:
+The complete technical implementation is in the following link:
 [**Complete code**](./aptostv/src/api/userData.js)
 
 # References
