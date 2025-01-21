@@ -12,7 +12,7 @@ import { checkNFT } from "./checkNFT";
 
 const privateKeyHex = process.env.NFT_MINTER_PRIVATEKEY;
 const minterAddress =
-  "0x180183f60d14433fe253ac87d683f23695f3831479241c91f73236a4e5cbf892";
+  "0x0d620f2ff38f89941787a72b8bcbec160a0360605ce1cdbd7d65ef376ef4c022";
 const formattedPrivateKeyHex = privateKeyHex.startsWith("0x")
   ? privateKeyHex.substring(2)
   : privateKeyHex;
