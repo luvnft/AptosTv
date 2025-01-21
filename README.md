@@ -162,7 +162,7 @@ Once the donation configured by the Streamer is made, in this case the platform 
 
 This is one of the mainnet NFTs we provide to our donors.
 
-AptosTV NFT - Aptos Explorer: 
+APTV NFT - Aptos Explorer: 
 https://aptoscan.com/tokenv2/0x7f48203908ef905a0eeaa6de8d18d4ea58a72bb147cc19f4b9efa3660914ea41
 
 The GraphQL Query used in the code snippet that checks if the connected wallet has the NFT is the following, it uses the Indexer API of [Nodit](https://nodit.io/).

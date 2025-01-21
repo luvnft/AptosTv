@@ -6,8 +6,8 @@ import { WalletProvider } from "./components/web3modal";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AptosTV",
-  description: "Created by Altaga",
+  title: "APTV",
+  description: "Created by Wizard of Hahz",
 };
 
 export default function RootLayout({ children }) {
